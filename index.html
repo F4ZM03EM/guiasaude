@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Guia de Sobrevivência - Saúde Infantil | Pacote Especial</title>
+    <!-- Font Awesome 6 (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #eef2f7 0%, #d9e2ec 100%);
+            color: #1e2a3e;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 2rem 2rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 119, 182, 0.2);
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #0077b6;
+            color: white;
+            font-weight: bold;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+            color: #0a2b3e;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #2c5a7a;
+            max-width: 700px;
+            margin: 0 auto 1rem auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            background: #f0f7fc;
+            padding: 1rem;
+            border-radius: 60px;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .stat i {
+            color: #0077b6;
+            font-size: 1.3rem;
+        }
+
+        .mockup-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ebook-cover {
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 32px;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+        }
+
+        .cover-img {
+            max-width: 260px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .cover-img:hover {
+            transform: scale(1.02);
+        }
+
+        .testimonial-flash {
+            flex: 1;
+            background: #fef9e6;
+            padding: 1.5rem;
+            border-radius: 32px;
+            border-left: 8px solid #0077b6;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-flash p {
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .autor-sign {
+            margin-top: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0 2.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            flex: 1;
+            min-width: 280px;
+            transition: all 0.2s ease;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-premium {
+            background: linear-gradient(145deg, #ffffff, #fff9ef);
+            border: 2px solid #ffb347;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-premium::before {
+            content: "🔥 MAIS VENDIDO 🔥";
+            background: #ffb347;
+            color: #1e2a3e;
+            font-weight: bold;
+            font-size: 0.7rem;
+            padding: 0.3rem 1.5rem;
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            transform: rotate(45deg);
+            width: 140px;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #0a2b3e;
+            margin: 0.5rem 0;
+        }
+
+        .price small {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #8c9aa8;
+            font-size: 1rem;
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-bottom: 2px solid #e2e8f0;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .feature-list i.fa-check-circle {
+            color: #2b9348;
+            font-size: 1.2rem;
+        }
+
+        .feature-list i.fa-star {
+            color: #ffb347;
+        }
+
+        .btn-comprar {
+            display: block;
+            width: 100%;
+            background: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        .btn-comprar:hover {
+            background: #023e8a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-premium {
+            background: #f4a261;
+            color: #1e2a3e;
+        }
+
+        .btn-premium:hover {
+            background: #e76f51;
+        }
+
+        .justify-bonus {
+            background: #fef3e2;
+            padding: 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .urgency {
+            background: #1e2a3e;
+            color: white;
+            border-radius: 60px;
+            text-align: center;
+            padding: 0.8rem;
+            margin: 1rem 0 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+
+        .countdown {
+            font-family: monospace;
+            font-size: 1.6rem;
+            font-weight: bold;
+            background: #00000055;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .redirect-box {
+            background: #e9f5ff;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #2c5a7a;
+        }
+
+        .notification-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #1e2a3e, #0f1a24);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-left: 4px solid #ffb347;
+            animation: slideInLeft 0.3s ease forwards;
+            pointer-events: none;
+            max-width: 320px;
+        }
+
+        .notification-toast i {
+            font-size: 1.3rem;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification-fade-out {
+            animation: fadeOut 0.5s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateX(-20px);
+                visibility: hidden;
+            }
+        }
+
+        .selected-card {
+            box-shadow: 0 0 0 3px #ffb347, 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 600px) {
+            .notification-toast {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                max-width: calc(100% - 20px);
+                font-size: 0.8rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="badge"><i class="fas fa-shield-alt"></i> +950 mães já confiam</div>
+        <h1>🚨 Malária, Diarreia, Desnutrição: <br>O que fazer nos primeiros 60 minutos?</h1>
+        <div class="hero-sub">Guia prático com linguagem simples, checklist de emergência e passos que salvam vidas — mesmo longe do hospital.</div>
+        <div class="hero-stats">
+            <div class="stat"><i class="fas fa-book-open"></i> Leitura rápida (40 min)</div>
+            <div class="stat"><i class="fas fa-chalkboard-user"></i> Checklist imprimível</div>
+            <div class="stat"><i class="fas fa-hand-holding-heart"></i> Aprovado por pediatras locais</div>
+        </div>
+    </div>
+
+    <div class="mockup-area">
+        <div class="ebook-cover">
+            <img class="cover-img" src="https://i.postimg.cc/Gpm7xb47/imagem-de-capa.jpg" alt="Capa do E-book Guia de Sobrevivência">
+            <p style="margin-top: 12px; font-size: 0.8rem;"><i class="fas fa-mobile-alt"></i> Formato PDF + leitura em qualquer dispositivo</p>
+        </div>
+        <div class="testimonial-flash">
+            <i class="fas fa-quote-left" style="font-size: 2rem; color: #0077b6; opacity: 0.4;"></i>
+            <p>“Meu filho teve diarreia forte à noite, eu entrei em pânico. Segui as orientações do Guia e preparei o soro caseiro certo. Na manhã seguinte fui ao centro de saúde estável. Esse livro deveria estar em cada casa.”</p>
+            <div class="autor-sign"><i class="fas fa-female"></i> <span>Albertina M. - Tete</span> <i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; margin: 1rem 0 0.5rem;"><i class="fas fa-tags"></i> Escolha o seu pacote com bónus especiais</h2>
+    <p style="text-align: center; margin-bottom: 1rem;">✔️ Pagamento seguro. Acesso imediato após confirmação.</p>
+
+    <div class="pricing-row">
+        <div class="card" id="cardNormal">
+            <span class="package-name">NORMAL</span>
+            <div class="old-price">De 350 MZN</div>
+            <div class="price"><small>por apenas</small> 199 MZN</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> E-book completo (PDF) 56 páginas</li>
+                <li><i class="fas fa-check-circle"></i> Capítulo sobre malária, diarreia, desnutrição</li>
+                <li><i class="fas fa-check-circle"></i> Checklist de emergência para imprimir</li>
+                <li><i class="fas fa-check-circle"></i> Tabela de sinais vermelhos</li>
+                <li><i class="fas fa-check-circle"></i> Acesso vitalício, atualizações gratuitas</li>
+            </ul>
+            <button class="btn-comprar" data-package="normal" data-url="https://pay.kambafy.com/checkout/3a815c31-9558-424b-856c-109ff2979e0e">COMPRAR AGORA <i class="fas fa-arrow-right"></i></button>
+            <div style="font-size: 0.75rem; margin-top: 0.5rem; text-align: center;">✔️ 7 dias de garantia incondicional</div>
+        </div>
+
+        <div class="card card-premium" id="cardPremium">
+            <span class="package-name">PREMIUM <i class="fas fa-crown" style="color: #ffb347;"></i></span>
+            <div class="old-price">De 500 MZN</div>
+            <div class="price"><small>por apenas</small> 349 MZN</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Tudo do pacote NORMAL</strong></li>
+                <li><i class="fas fa-star" style="color:#ffb347;"></i> <strong>BÓNUS #1:</strong> Guia extra "Primeiros Socorros para Febre e Convulsões" (PDF 25 pág)</li>
+                <li><i class="fas fa-star" style="color:#ffb347;"></i> <strong>BÓNUS #2:</strong> Áudio-narração completa do guia principal</li>
+                <li><i class="fas fa-star" style="color:#ffb347;"></i> <strong>BÓNUS #3:</strong> Planilha de registo de medicamentos</li>
+                <li><i class="fas fa-check-circle"></i> Suporte prioritário por e-mail</li>
+            </ul>
+            <div class="justify-bonus">
+                <i class="fas fa-gem"></i> <strong>Por que escolher o Premium?</strong> <br>
+                Os bónus valem mais de 400 MZN separadamente.
+            </div>
+            <button class="btn-comprar btn-premium" data-package="premium" data-url="https://pay.kambafy.com/checkout/80999c97-4392-4fa4-8f5c-6c95e128eda9">QUERO O PACOTE COMPLETO <i class="fas fa-gift"></i></button>
+        </div>
+    </div>
+
+    <div class="urgency">
+        <span><i class="fas fa-hourglass-half"></i> Oferta especial por tempo limitado:</span>
+        <span class="countdown" id="countdownTimer">24:00:00</span>
+        <span>⏳ Após esse período, apenas versão Normal sem bónus</span>
+    </div>
+
+    <div class="redirect-box">
+        <i class="fas fa-lock" style="font-size: 1.8rem; color: #2c6e49;"></i>
+        <h3 style="margin: 0.5rem 0;">✅ Pagamento 100% seguro!</h3>
+        <p>Clique em "COMPRAR AGORA" no pacote desejado e será redirecionado para finalizar o pagamento.<br> O download estará disponível imediatamente após a confirmação.</p>
+        <div style="margin: 1rem 0;">
+            <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fas fa-mobile-alt"></i> M-Pesa / E-Mola
+        </div>
+    </div>
+
+    <footer>
+        <i class="fas fa-book"></i> Guia de Sobrevivência • Conteúdo baseado em recomendações da OMS e Ministério da Saúde<br>
+        ⚠️ Este guia não substitui atendimento médico, mas capacita você a agir corretamente até a chegada da ajuda.
+    </footer>
+</div>
+
+<script>
+    // CONTADOR
+    let timeLeft = 24 * 60 * 60;
+    const timerElement = document.getElementById('countdownTimer');
+
+    function updateCountdown() {
+        if(!timerElement) return;
+        if (timeLeft <= 0) {
+            timerElement.innerText = "00:00:00";
+            return;
+        }
+        const hours = Math.floor(timeLeft / 3600);
+        const minutes = Math.floor((timeLeft % 3600) / 60);
+        const seconds = timeLeft % 60;
+        timerElement.innerText = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        timeLeft--;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // REDIRECIONAMENTO DIRETO - SEM COMPLICAÇÕES
+    // Cada botão já tem o link no atributo data-url
+    const botoesCompra = document.querySelectorAll('.btn-comprar');
+    
+    botoesCompra.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const url = this.getAttribute('data-url');
+            const packageType = this.getAttribute('data-package') || (this.classList.contains('btn-premium') ? 'premium' : 'normal');
+            
+            if (url && url !== '') {
+                // REDIRECIONAMENTO DIRETO NA MESMA ABA
+                window.location.href = url;
+            } else {
+                alert('Erro: Link de pagamento não configurado. Contacte o suporte.');
+            }
+        });
+    });
+    
+    // Efeito visual ao clicar no card (opcional)
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Se clicou no botão, não faz nada (o botão já trata)
+            if(e.target.classList.contains('btn-comprar') || e.target.closest('.btn-comprar')) {
+                return;
+            }
+            // Caso contrário, clica no botão interno
+            const btn = this.querySelector('.btn-comprar');
+            if(btn) {
+                btn.click();
+            }
+        });
+    });
+
+    // NOTIFICAÇÕES DE COMPRA (a cada 10 segundos)
+    const nomesCompradores = [
+        "Isabel C. (Maputo)", "Carlos M. (Beira)", "Fernanda J. (Nampula)", "Eusébio R. (Quelimane)",
+        "Albertina S. (Tete)", "Lucrécia P. (Inhambane)", "Domingos F. (Lichinga)", "Helena T. (Xai-Xai)",
+        "Ricardo L. (Pemba)", "Cecília V. (Chimoio)", "Norberto K. (Matola)", "Alda N. (Maxixe)",
+        "Horácio G. (Mocuba)", "Sónia B. (Montepuez)", "Adriano D. (Nacala)", "Margarida Q. (Manhiça)",
+        "Zacarias M. (Catandica)", "Olívia C. (Vilankulo)", "Bento R. (Gurúè)", "Rosa L. (Angoche)"
+    ];
+    
+    let currentIndex = 0;
+    let activeNotifications = [];
+    
+    function showNotification(nome) {
+        const notification = document.createElement('div');
+        notification.className = 'notification-toast';
+        const pacoteAleatorio = Math.random() > 0.6 ? "PREMIUM" : "NORMAL";
+        const icone = pacoteAleatorio === "PREMIUM" ? "fa-crown" : "fa-book";
+        
+        notification.innerHTML = `
+            <i class="fas ${icone}" style="color: #ffb347;"></i>
+            <div>
+                <i class="fas fa-bell" style="color: #ffb347;"></i> 
+                <strong>${nome}</strong> acabou de comprar o<br>
+                <span style="font-size: 0.85rem;">PACOTE ${pacoteAleatorio} - há poucos segundos!</span>
+            </div>
+            <i class="fas fa-check-circle" style="color: #2b9348;"></i>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        const timeoutId = setTimeout(() => {
+            notification.classList.add('notification-fade-out');
+            setTimeout(() => notification.remove(), 500);
+        }, 6000);
+        
+        activeNotifications.push(timeoutId);
+        
+        if (activeNotifications.length > 3) {
+            const oldest = activeNotifications.shift();
+            clearTimeout(oldest);
+            const oldNotif = document.querySelectorAll('.notification-toast');
+            if (oldNotif.length > 3) oldNotif[0]?.remove();
+        }
+    }
+    
+    function scheduleNotifications() {
+        const nome = nomesCompradores[currentIndex % nomesCompradores.length];
+        showNotification(nome);
+        currentIndex++;
+        setTimeout(scheduleNotifications, 10000);
+    }
+    
+    setTimeout(() => {
+        scheduleNotifications();
+    }, 3000);
+    
+    setTimeout(() => {
+        showNotification("Marina D. (Maputo)");
+    }, 1000);
+</script>
+</body>
+</html>
