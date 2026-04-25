@@ -21,75 +21,213 @@
             padding: 2rem 1rem;
         }
 
-        /* NOTIFICAÇÃO FLUTUANTE DE COMPRA RECENTE */
-.notification-toast {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: linear-gradient(135deg, #1e2a3e, #0f1a24);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    z-index: 9999;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-left: 4px solid #ffb347;
-    animation: slideInLeft 0.3s ease forwards;
-    pointer-events: none;
-    max-width: 320px;
-}
+        /* NOTIFICAÇÃO FLUTUANTE DE COMPRA RECENTE - TOPO - BRANCA COM LETRAS PRETAS */
+        .notification-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #1e2a3e;
+            padding: 10px 18px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            z-index: 9999;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-left: 4px solid #ffb347;
+            animation: slideInRight 0.3s ease forwards;
+            pointer-events: none;
+            max-width: 300px;
+        }
 
-.notification-toast i:first-child {
-    font-size: 1.3rem;
-}
+        .notification-toast i:first-child {
+            font-size: 1rem;
+            color: #2b9348;
+        }
 
-.notification-toast .fa-bell {
-    color: #ffb347;
-}
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
+        .notification-fade-out {
+            animation: fadeOutRight 0.5s ease forwards;
+        }
 
-.notification-fade-out {
-    animation: fadeOut 0.5s ease forwards;
-}
+        @keyframes fadeOutRight {
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+                visibility: hidden;
+            }
+        }
 
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateX(-20px);
-        visibility: hidden;
-    }
-}
-
-@media (max-width: 600px) {
-    .notification-toast {
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
-        max-width: calc(100% - 20px);
-        font-size: 0.8rem;
-    }
-}
-
-
-/* AQUI */
+        @media (max-width: 600px) {
+            .notification-toast {
+                top: 10px;
+                right: 10px;
+                left: auto;
+                max-width: calc(100% - 20px);
+                font-size: 0.75rem;
+                padding: 8px 14px;
+            }
+        }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
+        }
+
+        /* SEÇÃO DO VÍDEO */
+        .video-section {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(18, 39, 110, 0.2);
+            text-align: center;
+        }
+
+        .video-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #0a2b3e;
+        }
+
+        .video-container {
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Botão CTA abaixo do vídeo */
+        .video-cta {
+            margin-top: 1.5rem;
+        }
+
+        .btn-video-cta {
+            display: inline-block;
+            background: #e76f51;
+            color: white;
+            text-align: center;
+            padding: 1rem 2.5rem;
+            font-weight: bold;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(231, 111, 81, 0.4);
+            animation: pulse 1.5s infinite;
+        }
+
+        .btn-video-cta:hover {
+            background: #d45a3a;
+            transform: scale(1.02);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(231, 111, 81, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(231, 111, 81, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(231, 111, 81, 0.4); }
+        }
+
+        /* PROVA SOCIAL COM 5 DEPOIMENTOS */
+        .social-proof {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 119, 182, 0.2);
+        }
+
+        .social-proof h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #0a2b3e;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: #fef9e6;
+            border-radius: 20px;
+            padding: 1.2rem;
+            transition: transform 0.2s;
+            border: 1px solid #ffe0b5;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffb347;
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            color: #1e2a3e;
+        }
+
+        .testimonial-location {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+
+        .testimonial-stars {
+            color: #ffb347;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.5;
+            color: #2c5a7a;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-text i {
+            color: #ffb347;
+            margin-right: 5px;
         }
 
         .hero {
@@ -175,28 +313,6 @@
             border-radius: 16px;
             box-shadow: 0 15px 25px rgba(0,0,0,0.2);
             transition: transform 0.2s ease;
-        }
-
-        .testimonial-flash {
-            flex: 1;
-            background: #fef9e6;
-            padding: 1.5rem;
-            border-radius: 32px;
-            border-left: 8px solid #0077b6;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .testimonial-flash p {
-            font-style: italic;
-            font-size: 1.1rem;
-        }
-
-        .autor-sign {
-            margin-top: 1rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .pricing-row {
@@ -354,33 +470,51 @@
             color: #2c5a7a;
         }
 
-        /* ========== CHATBOT ATREVIDO ========== */
+        /* CHATBOT COM IMAGEM DA SENHORA - SEM ÍCONE DE MENSAGEM */
         .chat-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #e76f51;
-            color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             z-index: 1001;
             transition: 0.2s;
-            border: none;
+            border: 3px solid white;
+            background: #f0f7fc;
+            overflow: hidden;
         }
         .chat-button:hover {
-            background: #f4a261;
             transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
+        .chat-button-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .online-dot {
+            position: absolute;
+            bottom: 3px;
+            right: 3px;
+            width: 14px;
+            height: 14px;
+            background-color: #2b9348;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse-green 1.5s infinite;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(0.95); opacity: 1; }
+        }
+
         .chat-window {
             position: fixed;
-            bottom: 90px;
+            bottom: 95px;
             right: 20px;
             width: 350px;
             max-width: calc(100% - 40px);
@@ -442,14 +576,6 @@
             flex-direction: column;
             gap: 8px;
         }
-        .sub-question {
-            font-size: 0.85rem;
-            color: #555;
-            margin-top: 5px;
-            margin-left: 15px;
-            border-left: 2px solid #ffb347;
-            padding-left: 10px;
-        }
         .final-btn {
             background: #e76f51;
             color: white;
@@ -469,15 +595,17 @@
             .chat-window {
                 width: 300px;
                 right: 10px;
-                bottom: 80px;
+                bottom: 85px;
+            }
+            h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- todo o conteúdo existente da página (hero, mockup, preços, etc) -->
-    <div class="hero">
+        <div class="hero">
         <div class="badge"><i class="fas fa-shield-alt"></i> +950 mães já confiam</div>
         <h1>🚨 Malária, Diarreia, Desnutrição: <br>O que fazer nos primeiros 60 minutos?</h1>
         <div class="hero-sub">Guia prático com linguagem simples, checklist de emergência e passos que salvam vidas — mesmo longe do hospital.</div>
@@ -488,15 +616,105 @@
         </div>
     </div>
 
-    <div class="mockup-area">
-        <div class="ebook-cover">
-            <img class="cover-img" src="https://i.postimg.cc/Gpm7xb47/imagem-de-capa.jpg" alt="Capa do E-book">
-            <p style="margin-top: 12px;"><i class="fas fa-mobile-alt"></i> Formato PDF + leitura em qualquer dispositivo</p>
+    
+  <!-- VÍDEO SECTION COM AUTOPLAY E MUTE -->
+    <div class="video-section">
+        <div class="video-title">
+            🎥 Assista ao vídeo e descubra como salvar o seu filho
         </div>
-        <div class="testimonial-flash">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: #0077b6; opacity: 0.4;"></i>
-            <p>“Meu filho teve diarreia forte à noite... Segui o Guia e preparei o soro caseiro certo. Na manhã seguinte fui ao centro de saúde estável. Esse livro deveria estar em cada casa.”</p>
-            <div class="autor-sign"><i class="fas fa-female"></i> <span>Albertina M. - Tete</span> <i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
+        <div class="video-container">
+            <video controls poster="https://i.postimg.cc/Gpm7xb47/imagem-de-capa.jpg">
+                <source src="https://www.image2url.com/r2/default/videos/1777075927786-3fed96f6-a33c-4e30-91d8-1e393f430eb3.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo. 
+                <!-- controls autoplay muted playsinline ----\\\  para dar payt automático, sem som e com comportamento otimizado para mobile. Substitua o URL do vídeo pelo seu vídeo real do HeyGen -->
+            </video>
+        </div>
+        <div class="video-cta">
+            <a href="https://pay.kambafy.com/checkout/3a815c31-9558-424b-856c-109ff2979e0e" class="btn-video-cta">
+                🚨 QUERO COMPRAR AGORA - 349 MZN 🚨
+            </a>
+        </div>
+    </div>
+
+    <!-- PROVA SOCIAL COM 5 DEPOIMENTOS -->
+    <div class="social-proof">
+        <h3><i class="fas fa-users"></i> +950 mães já confiam no Guia de Sobrevivência</h3>
+        <div class="testimonials-grid">
+            
+            <!-- Depoimento 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://i.postimg.cc/R0sSTgGY/sd-1.jpg" alt="Avatar" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Albertina Manhique</div>
+                        <div class="testimonial-location">📍 Matola, Maputo</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    <i class="fas fa-quote-left"></i> O meu filho de 3 anos teve diarreia forte à noite. Eu entrei em pânico. Abri o Guia, fiz o soro caseiro como ensina e em 2 dias ele estava bem. Nunca mais fico sem este livro!
+                </div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://i.postimg.cc/fbrsdJTB/sd-2.jpg" alt="Avatar" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Cecília José</div>
+                        <div class="testimonial-location">📍 Beira, Sofala</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    <i class="fas fa-quote-left"></i> A minha bebé teve malária com convulsão. Eu não sabia o que fazer. O Guia salvou a vida dela. Levei ao hospital a tempo por causa dos sinais que aprendi. Sou grata para sempre.
+                </div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://i.postimg.cc/Z5YzDr9R/sd-3.jpg" alt="Avatar" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Isabel Muchanga</div>
+                        <div class="testimonial-location">📍 Nampula, Nampula</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    <i class="fas fa-quote-left"></i> Comprei o Guia por desconfiança, mas valeu cada metical. O checklist que vem no fim está colado na minha cozinha. Todas as mães deviam ter um.
+                </div>
+            </div>
+
+            <!-- Depoimento 4 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://i.postimg.cc/L5kGxX2f/sd-4.jpg" alt="Avatar" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Filomena Langa</div>
+                        <div class="testimonial-location">📍 Tete, Tete</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    <i class="fas fa-quote-left"></i> Há duas semanas o meu sobrinho teve febre alta. Eu usei o Guia e reconheci os sinais de perigo. O médico disse que se chegasse mais tarde, podia ser grave. Obrigada!
+                </div>
+            </div>
+
+            <!-- Depoimento 5 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://i.postimg.cc/wMkbhGQX/sd-5.jpg" alt="Avatar" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Helena Mondlane</div>
+                        <div class="testimonial-location">📍 Quelimane, Zambézia</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    <i class="fas fa-quote-left"></i> Eu era daquelas que dava banho frio na malária... Até ler o Guia. Hoje sei o que fazer. Recomendo a todas as amigas. Não esperem acontecer para aprender.
+                </div>
+            </div>
         </div>
     </div>
 
@@ -506,8 +724,8 @@
     <div class="pricing-row">
         <div class="card" id="cardNormal">
             <span class="package-name">NORMAL</span>
-            <div class="old-price">De 350 MZN</div>
-            <div class="price"><small>por apenas</small> 199 MZN</div>
+            <div class="old-price">De 500 MZN</div>
+            <div class="price"><small>por apenas</small> 349 MZN</div>
             <ul class="feature-list">
                 <li><i class="fas fa-check-circle"></i> E-book completo (PDF) 56 páginas</li>
                 <li><i class="fas fa-check-circle"></i> Capítulo sobre malária, diarreia, desnutrição</li>
@@ -521,8 +739,8 @@
 
         <div class="card card-premium" id="cardPremium">
             <span class="package-name">PREMIUM <i class="fas fa-crown" style="color: #ffb347;"></i></span>
-            <div class="old-price">De 790 MZN</div>
-            <div class="price"><small>por apenas</small> 349 MZN</div>
+            <div class="old-price">De 999 MZN</div>
+            <div class="price"><small>por apenas</small> 599 MZN</div>
             <ul class="feature-list">
                 <li><i class="fas fa-check-circle"></i> <strong>Tudo do pacote NORMAL</strong></li>
                 <li><i class="fas fa-star" style="color:#ffb347;"></i> <strong>BÓNUS #1:</strong> Guia extra "Primeiros Socorros para Febre e Convulsões"</li>
@@ -550,299 +768,222 @@
     <footer>⚠️ Este guia não substitui atendimento médico, mas capacita você a agir.</footer>
 </div>
 
-<!-- BOTÃO CHAT -->
+<!-- BOTÃO CHAT COM IMAGEM DA SENHORA E PONTO VERDE -->
 <div class="chat-button" id="chatButton">
-    <i class="fas fa-comment-dots"></i>
+    <img src="https://i.postimg.cc/NGpPdWwp/capa-chat.jpg" alt="Atendente" class="chat-button-img">
+    <div class="online-dot"></div>
 </div>
 
 <!-- JANELA DO CHAT -->
 <div class="chat-window" id="chatWindow">
     <div class="chat-header">
-        <span><i class="fas fa-robot"></i> Doutor da Sobrevivência</span>
+        <span><i class="fas fa-robot"></i> Doutora da Sobrevivência</span>
         <i class="fas fa-times" id="closeChat"></i>
     </div>
     <div class="chat-body" id="chatBody">
         <div class="chat-message">
             <div class="chat-question">⚡ Ei, você aí! Quer mesmo ficar sem saber o que fazer quando seu filho tiver uma crise? Vou te fazer 3 perguntas. Se você responder com honestidade, talvez mereça os nossos pacotes. Vamos lá?</div>
         </div>
-        <!-- as perguntas serão inseridas via JS -->
     </div>
 </div>
 
 <script>
-// ===================== NOTIFICAÇÕES DE COMPRA RECENTE =====================
-// Lista de 20 nomes de compradores (Moçambique)
-const nomesCompradores = [
-    "Isabel C. (Maputo)", "Carlos M. (Beira)", "Fernanda J. (Nampula)", "Eusébio R. (Quelimane)",
-    "Albertina S. (Tete)", "Lucrécia P. (Inhambane)", "Domingos F. (Lichinga)", "Helena T. (Xai-Xai)",
-    "Ricardo L. (Pemba)", "Cecília V. (Chimoio)", "Norberto K. (Matola)", "Alda N. (Maxixe)",
-    "Horácio G. (Mocuba)", "Sónia B. (Montepuez)", "Adriano D. (Nacala)", "Margarida Q. (Manhiça)",
-    "Zacarias M. (Catandica)", "Olívia C. (Vilankulo)", "Bento R. (Gurúè)", "Rosa L. (Angoche)"
+// ===================== NOTIFICAÇÕES DE COMPRA RECENTE (APENAS NOMES FEMININOS - TOPO) =====================
+const nomesCompradoresFemininos = [
+    "Isabel C. (Maputo)", "Fernanda J. (Nampula)", "Albertina S. (Tete)", "Lucrécia P. (Inhambane)", 
+    "Helena T. (Xai-Xai)", "Cecília V. (Chimoio)", "Alda N. (Maxixe)", "Sónia B. (Montepuez)", 
+    "Margarida Q. (Manhiça)", "Olívia C. (Vilankulo)", "Rosa L. (Angoche)", "Teresa M. (Maputo)",
+    "Anabela D. (Beira)", "Lúcia C. (Nampula)", "Odete F. (Tete)", "Salomé J. (Quelimane)",
+    "Fátima R. (Pemba)", "Luísa S. (Matola)", "Lina P. (Inhambane)", "Zulmira T. (Lichinga)"
 ];
 
-let indiceAtual = 0;
+let indiceAtualFem = 0;
 let notificacoesAtivas = [];
 
-// Função que cria e mostra uma notificação
 function mostrarNotificacaoCompra(nome) {
     const notificacao = document.createElement('div');
     notificacao.className = 'notification-toast';
-    
-    // Escolher pacote aleatório (60% Normal, 40% Premium - mais realista)
     const pacoteAleatorio = Math.random() > 0.6 ? "PREMIUM" : "NORMAL";
-    const iconePacote = pacoteAleatorio === "PREMIUM" ? "fa-crown" : "fa-book";
-    const corIcone = pacoteAleatorio === "PREMIUM" ? "#ffb347" : "#2b9348";
     
     notificacao.innerHTML = `
-        <i class="fas ${iconePacote}" style="color: ${corIcone};"></i>
+        <i class="fas fa-shopping-cart"></i>
         <div>
-            <i class="fas fa-bell" style="color: #ffb347; font-size: 0.7rem;"></i> 
-            <strong>${nome}</strong> acabou de comprar o<br>
-            <span style="font-size: 0.85rem;">PACOTE ${pacoteAleatorio} - há poucos segundos!</span>
+            <strong>${nome}</strong> comprou ${pacoteAleatorio} há pouco
         </div>
-        <i class="fas fa-check-circle" style="color: #2b9348;"></i>
+        <i class="fas fa-check-circle"></i>
     `;
     
     document.body.appendChild(notificacao);
     
-    // Remove a notificação após 6 segundos
     const timeoutId = setTimeout(() => {
         notificacao.classList.add('notification-fade-out');
-        setTimeout(() => {
-            if (notificacao && notificacao.remove) {
-                notificacao.remove();
-            }
-        }, 500);
-    }, 6000);
+        setTimeout(() => { if(notificacao && notificacao.remove) notificacao.remove(); }, 500);
+    }, 5000);
     
     notificacoesAtivas.push(timeoutId);
-    
-    // Limitar a 3 notificações simultâneas (remove a mais antiga se necessário)
-    if (notificacoesAtivas.length > 3) {
+    if(notificacoesAtivas.length > 3) {
         const timeoutAntigo = notificacoesAtivas.shift();
         clearTimeout(timeoutAntigo);
         const notifAntiga = document.querySelectorAll('.notification-toast');
-        if (notifAntiga.length > 3 && notifAntiga[0]) {
+        if(notifAntiga.length > 3 && notifAntiga[0]) {
             notifAntiga[0].classList.add('notification-fade-out');
             setTimeout(() => notifAntiga[0]?.remove(), 500);
         }
     }
 }
 
-// Função que agenda as notificações a cada 10 segundos
 function iniciarNotificacoes() {
-    // Mostra uma notificação agora
-    const nome = nomesCompradores[indiceAtual % nomesCompradores.length];
+    const nome = nomesCompradoresFemininos[indiceAtualFem % nomesCompradoresFemininos.length];
     mostrarNotificacaoCompra(nome);
-    indiceAtual++;
-    
-    // Agenda a próxima para daqui 10 segundos
+    indiceAtualFem++;
     setTimeout(iniciarNotificacoes, 10000);
 }
 
-// Inicia as notificações após 3 segundos (para não bombardear ao abrir a página)
-setTimeout(() => {
-    iniciarNotificacoes();
-}, 3000);
+setTimeout(() => { iniciarNotificacoes(); }, 3000);
+setTimeout(() => { mostrarNotificacaoCompra("Marina D. (Maputo)"); }, 1000);
 
-// Mostra uma notificação extra de boas-vindas após 1 segundo
-setTimeout(() => {
-    mostrarNotificacaoCompra("Marina D. (Maputo)");
-}, 1000);
-
-
-    // CONTADOR
-    let timeLeft = 2 * 60 * 60;
-    const timerElement = document.getElementById('countdownTimer');
-    function updateCountdown() {
-        if(!timerElement) return;
-        if (timeLeft <= 0) timerElement.innerText = "00:00:00";
-        else {
-            const h = Math.floor(timeLeft/3600), m = Math.floor((timeLeft%3600)/60), s = timeLeft%60;
-            timerElement.innerText = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-            timeLeft--;
-        }
+// CONTADOR
+let timeLeft = 1 * 60 * 60;
+const timerElement = document.getElementById('countdownTimer');
+function updateCountdown() {
+    if(!timerElement) return;
+    if(timeLeft <= 0) timerElement.innerText = "00:00:00";
+    else {
+        const h = Math.floor(timeLeft/3600), m = Math.floor((timeLeft%3600)/60), s = timeLeft%60;
+        timerElement.innerText = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+        timeLeft--;
     }
-    updateCountdown(); setInterval(updateCountdown,1000);
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
 
-    // REDIRECIONAMENTO DOS BOTÕES
-    document.querySelectorAll('.btn-comprar').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const url = btn.getAttribute('data-url');
-            if(url) window.location.href = url;
-            else alert("Link de pagamento não configurado.");
-        });
+// REDIRECIONAMENTO DOS BOTÕES
+document.querySelectorAll('.btn-comprar').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = btn.getAttribute('data-url');
+        if(url) window.location.href = url;
+        else alert("Link de pagamento não configurado.");
     });
-    // clique nos cards
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            if(e.target.classList.contains('btn-comprar') || e.target.closest('.btn-comprar')) return;
-            const btn = card.querySelector('.btn-comprar');
-            if(btn) btn.click();
-        });
+});
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        if(e.target.classList.contains('btn-comprar') || e.target.closest('.btn-comprar')) return;
+        const btn = card.querySelector('.btn-comprar');
+        if(btn) btn.click();
     });
+});
 
-    // ================== CHATBOT ATREVIDO ==================
-    const chatButton = document.getElementById('chatButton');
-    const chatWindow = document.getElementById('chatWindow');
-    const closeChat = document.getElementById('closeChat');
-    const chatBody = document.getElementById('chatBody');
+// ================== CHATBOT ==================
+const chatButton = document.getElementById('chatButton');
+const chatWindow = document.getElementById('chatWindow');
+const closeChat = document.getElementById('closeChat');
+const chatBody = document.getElementById('chatBody');
 
-    let currentStep = 0; // 0: pergunta1, 1: sub1, 2: pergunta2, 3: sub2, 4: pergunta3, 5: sub3, 6: final
-    let userAnswers = { q1: '', q2: '', q3: '' };
+let currentStep = 0;
+let userAnswers = { q1: '', q2: '', q3: '' };
 
-    // Estrutura das perguntas e subperguntas (atrevidas, psicológicas)
-    const questions = [
-        { // pergunta 1
-            text: "PERGUNTA 1 (não minta): Quantas vezes você já ficou em pânico por não saber o que fazer quando seu filho teve febre alta ou diarreia e mais doenças?",
-            options: ["Nunca, eu sou tranquilo(a)", "Uma ou duas vezes, mas resolvi", "Várias vezes, chorei de medo", "Todas as vezes, me sinto impotente"]
-        },
-        { // sub1 - após escolha, pergunta mais agressiva
-            text: "🤔 E se eu te disser que com este guia você poderia ter agido certo e evitado uma ida desnecessária ao hospital? Você acredita que informação salva vidas ou ainda acha que é sorte?",
-            options: ["Acredito, quero aprender", "Sorte, mas estou disposto(a) a mudar", "Não sei, me convence"]
-        },
-        { // pergunta 2
-            text: "PERGUNTA 2 (responda com o coração): Você já deixou de comprar um remédio ou um alimento nutritivo porque o dinheiro estava curto?",
-            options: ["Sim, várias vezes", "Às vezes, é difícil", "Nunca, priorizo saúde", "Não quero responder"]
-        },
-        { // sub2
-            text: "💰 Então você sabe que 199 MZN (menos de 200 meticais) é o preço de um lanche. Esse e-book custa menos que um frango. Por que você ainda está pensando em arriscar a vida do seu filho por causa de um valor tão baixo?",
-            options: ["Tem razão, é barato", "Ainda acho caro", "Preciso de mais motivos"]
-        },
-        { // pergunta 3
-            text: "PERGUNTA 3 (seja brutalmente honesto): Se amanhã seu filho tivesse uma convulsão por malária, você saberia exatamente o que fazer nos primeiros 10 minutos?",
-            options: ["Sim, sei tudo", "Mais ou menos, mas ficaria em pânico", "Não faço ideia, isso me assusta", "Prefiro não pensar nisso"]
-        },
-        { // sub3
-            text: "⚠️ A verdade é que 80% das mães entram em desespero e cometem erros fatais (dar banho frio, esfregar álcool, etc.). O nosso guia tem um capítulo EXCLUSIVO sobre convulsões. Você vai continuar ignorando isso?",
-            options: ["Não quero ignorar, mostra os pacotes", "Quero aprender agora", "Só compro se tiver garantia"]
+const questions = [
+    { text: "PERGUNTA 1 (não minta): Quantas vezes você já ficou em pânico por não saber o que fazer quando seu filho teve febre alta ou diarreia?", options: ["Nunca", "Uma ou duas vezes", "Várias vezes, chorei de medo", "Todas as vezes"] },
+    { text: "🤔 E se eu te disser que com este guia você poderia ter agido certo? Você acredita que informação salva vidas?", options: ["Acredito, quero aprender", "Sorte, mas estou disposto", "Não sei"] },
+    { text: "PERGUNTA 2: Você já deixou de comprar um remédio porque o dinheiro estava curto?", options: ["Sim, várias vezes", "Às vezes", "Nunca", "Não quero responder"] },
+    { text: "💰 349 MZN é o preço de um lanche. Por que você arrisca a vida do seu filho por um valor tão baixo?", options: ["Tem razão, é barato", "Ainda acho caro", "Preciso de mais motivos"] },
+    { text: "PERGUNTA 3: Se amanhã seu filho tivesse uma convulsão, você saberia o que fazer?", options: ["Sim, sei tudo", "Mais ou menos", "Não faço ideia", "Prefiro não pensar"] },
+    { text: "⚠️ 80% das mães cometem erros fatais. O nosso guia tem um capítulo sobre convulsões. Vai ignorar?", options: ["Quero os pacotes", "Quero aprender", "Só compro com garantia"] }
+];
+
+function addMessage(text, isUser = false, options = null) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-message';
+    if(!isUser) {
+        msgDiv.innerHTML = `<div class="chat-question">${text}</div>`;
+        if(options && options.length) {
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'chat-options';
+            options.forEach(opt => {
+                const optBtn = document.createElement('div');
+                optBtn.className = 'chat-answer';
+                optBtn.innerText = opt;
+                optBtn.addEventListener('click', () => {
+                    if(currentStep === 0) userAnswers.q1 = opt;
+                    else if(currentStep === 1) userAnswers.q1sub = opt;
+                    else if(currentStep === 2) userAnswers.q2 = opt;
+                    else if(currentStep === 3) userAnswers.q2sub = opt;
+                    else if(currentStep === 4) userAnswers.q3 = opt;
+                    else if(currentStep === 5) userAnswers.q3sub = opt;
+                    currentStep++;
+                    renderNext();
+                });
+                optsDiv.appendChild(optBtn);
+            });
+            msgDiv.appendChild(optsDiv);
         }
-    ];
+    } else {
+        msgDiv.innerHTML = `<div style="text-align:right"><span class="chat-answer" style="background:#0077b6; color:white; display:inline-block">${text}</span></div>`;
+    }
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
 
-    function addMessage(text, isUser = false, options = null) {
+function renderNext() {
+    if(currentStep < questions.length) {
+        const q = questions[currentStep];
+        addMessage(q.text, false, q.options);
+    } else if(currentStep === questions.length) {
+        let finalMsg = `🔥 CHEGA DE DESCULPAS! Você precisa deste guia. Clique no botão abaixo e VEJA OS PACOTES.`;
         const msgDiv = document.createElement('div');
         msgDiv.className = 'chat-message';
-        if (!isUser) {
-            msgDiv.innerHTML = `<div class="chat-question">${text}</div>`;
-            if (options && options.length) {
-                const optsDiv = document.createElement('div');
-                optsDiv.className = 'chat-options';
-                options.forEach(opt => {
-                    const optBtn = document.createElement('div');
-                    optBtn.className = 'chat-answer';
-                    optBtn.innerText = opt;
-                    optBtn.addEventListener('click', () => {
-                        // guardar resposta
-                        if (currentStep === 0) userAnswers.q1 = opt;
-                        else if (currentStep === 1) userAnswers.q1sub = opt;
-                        else if (currentStep === 2) userAnswers.q2 = opt;
-                        else if (currentStep === 3) userAnswers.q2sub = opt;
-                        else if (currentStep === 4) userAnswers.q3 = opt;
-                        else if (currentStep === 5) userAnswers.q3sub = opt;
-                        // avançar
-                        currentStep++;
-                        renderNext();
-                    });
-                    optsDiv.appendChild(optBtn);
-                });
-                msgDiv.appendChild(optsDiv);
-            }
-        } else {
-            msgDiv.innerHTML = `<div style="text-align:right"><span class="chat-answer" style="background:#0077b6; color:white; display:inline-block">${text}</span></div>`;
-        }
+        msgDiv.innerHTML = `<div class="chat-question">${finalMsg}</div>`;
+        const btnFinal = document.createElement('button');
+        btnFinal.innerText = "🚀 QUERO VER OS PACOTES 🚀";
+        btnFinal.className = "final-btn";
+        btnFinal.addEventListener('click', () => {
+            chatWindow.style.display = 'none';
+            document.getElementById('pacotes-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        msgDiv.appendChild(btnFinal);
         chatBody.appendChild(msgDiv);
         chatBody.scrollTop = chatBody.scrollHeight;
+        currentStep++;
     }
+}
 
-    function renderNext() {
-        if (currentStep < questions.length) {
-            const q = questions[currentStep];
-            addMessage(q.text, false, q.options);
-        } else if (currentStep === questions.length) {
-            // final: mostrar resumo atrevido e botão para pacotes
-            let finalMsg = `🔥 <strong>CHEGA DE DESCULPAS!</strong> Você admitiu que: <br> 
-            - ${userAnswers.q1 || '?'}<br>
-            - ${userAnswers.q1sub || '?'}<br>
-            - Sobre dinheiro: ${userAnswers.q2 || '?'}<br>
-            - ${userAnswers.q2sub || '?'}<br>
-            - Sobre convulsões: ${userAnswers.q3 || '?'}<br>
-            - ${userAnswers.q3sub || '?'}<br><br>
-            A verdade é que você PRECISA deste guia. Não arrisque a vida de quem você ama por causa de 199 MZN. 
-            Clique no botão abaixo e VEJA OS PACOTES.`;
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'chat-message';
-            msgDiv.innerHTML = `<div class="chat-question">${finalMsg}</div>`;
-            const btnFinal = document.createElement('button');
-            btnFinal.innerText = "🚀 QUERO VER OS PACOTES AGORA 🚀";
-            btnFinal.className = "final-btn";
-            btnFinal.addEventListener('click', () => {
-                // Fechar chat e rolar até a seção de preços
-                chatWindow.style.display = 'none';
-                document.getElementById('pacotes-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // Efeito visual
-                const section = document.getElementById('pacotes-section');
-                section.style.transition = '0.3s';
-                section.style.backgroundColor = '#ffb34755';
-                setTimeout(() => section.style.backgroundColor = '', 1000);
-            });
-            msgDiv.appendChild(btnFinal);
-            chatBody.appendChild(msgDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-            currentStep++; // para não repetir
-        }
-    }
-
-    // Abrir/fechar chat e iniciar
-    chatButton.addEventListener('click', () => {
-        if (chatWindow.style.display === 'flex') {
-            chatWindow.style.display = 'none';
-        } else {
-            chatWindow.style.display = 'flex';
-            if (currentStep === 0 && chatBody.children.length <= 1) {
-                // já tem a primeira mensagem fixa? Vamos resetar se necessário
-                // mas para não duplicar, verificamos
-                if (chatBody.children.length === 1) {
-                    currentStep = 0;
-                    renderNext();
-                }
-            }
-        }
-    });
-    closeChat.addEventListener('click', () => {
+chatButton.addEventListener('click', () => {
+    if(chatWindow.style.display === 'flex') {
         chatWindow.style.display = 'none';
-    });
+    } else {
+        chatWindow.style.display = 'flex';
+        if(currentStep === 0 && chatBody.children.length === 1) {
+            renderNext();
+        }
+    }
+});
+closeChat.addEventListener('click', () => { chatWindow.style.display = 'none'; });
 
-    // inicializa o chat com a primeira mensagem já no HTML, mas o JS precisa iniciar o fluxo
-    // para garantir que as perguntas apareçam assim que abrir
-    // vamos limpar o corpo e recriar?
-    window.onload = () => {
-        // garantir que o chat não tenha conteúdo duplicado
-        chatBody.innerHTML = '';
-        const initialMsg = document.createElement('div');
-        initialMsg.className = 'chat-message';
-        initialMsg.innerHTML = `<div class="chat-question">⚡ Ei, você aí! Quer mesmo ficar sem saber o que fazer quando seu filho tiver uma crise? Vou te fazer 3 perguntas. Se você responder com honestidade, talvez mereça os nossos pacotes. Vamos lá?</div>`;
-        chatBody.appendChild(initialMsg);
-        currentStep = 0;
-        // não chamar renderNext ainda, só quando abrir o chat pela primeira vez
-        // mas se abrir, chamaremos
-        let chatOpened = false;
-        const originalOpen = chatButton.onclick;
-        chatButton.addEventListener('click', () => {
-            if (!chatOpened && chatWindow.style.display === 'flex') {
-                chatOpened = true;
-                renderNext();
-            }
-        }, { once: false });
-        // Se já abriu antes, não fazer nada
-        // Para garantir que ao primeiro clique funcione:
-        const checkFirstOpen = () => {
-            if (chatWindow.style.display === 'flex' && currentStep === 0 && chatBody.children.length === 1) {
-                renderNext();
-            }
-        };
-        setInterval(checkFirstOpen, 500);
-    };
+window.onload = () => {
+    chatBody.innerHTML = '';
+    const initialMsg = document.createElement('div');
+    initialMsg.className = 'chat-message';
+    initialMsg.innerHTML = `<div class="chat-question">⚡ Ei, você aí! Quer saber como salvar seu filho? Responda 3 perguntas.</div>`;
+    chatBody.appendChild(initialMsg);
+    currentStep = 0;
+    let chatOpened = false;
+    chatButton.addEventListener('click', () => {
+        if(!chatOpened && chatWindow.style.display === 'flex') {
+            chatOpened = true;
+            renderNext();
+        }
+    });
+};
+
+// Forçar o vídeo a tentar dar play (caso o autoplay não funcione)
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('video');
+    if(video) {
+        video.play().catch(e => console.log('Autoplay bloqueado pelo navegador, o usuário precisa clicar'));
+    }
+});
 </script>
 </body>
 </html>
