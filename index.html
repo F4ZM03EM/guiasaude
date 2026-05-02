@@ -152,82 +152,101 @@
             100% { transform: scale(1); box-shadow: 0 5px 15px rgba(231, 111, 81, 0.4); }
         }
 
-        /* PROVA SOCIAL COM 5 DEPOIMENTOS */
-        .social-proof {
+        /* PROVA SOCIAL - CARROSSEL DE IMAGENS (WHATSAPP) */
+        .social-proof-carousel {
             background: #ffffff;
             border-radius: 2rem;
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(0, 119, 182, 0.2);
+            overflow: hidden;
         }
 
-        .social-proof h3 {
+        .social-proof-carousel h3 {
             text-align: center;
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             color: #0a2b3e;
         }
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+        .carousel-container {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            cursor: grab;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .testimonial-card {
-            background: #fef9e6;
-            border-radius: 20px;
-            padding: 1.2rem;
-            transition: transform 0.2s;
-            border: 1px solid #ffe0b5;
+        .carousel-container:active {
+            cursor: grabbing;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .testimonial-header {
+        .carousel-track {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 1.5rem;
+            width: max-content;
+            animation: scroll 30s linear infinite;
         }
 
-        .testimonial-avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ffb347;
+        /* Animação para correr da direita para a esquerda */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
-        .testimonial-name {
-            font-weight: bold;
-            color: #1e2a3e;
+        /* Parar animação quando o usuário interage (hover ou toque) */
+        .carousel-container:hover .carousel-track,
+        .carousel-container:active .carousel-track {
+            animation-play-state: paused;
         }
 
-        .testimonial-location {
-            font-size: 0.75rem;
-            color: #6c757d;
+        /* Para dispositivos com toque, pausar ao tocar */
+        @media (max-width: 768px) {
+            .carousel-container:active .carousel-track {
+                animation-play-state: paused;
+            }
         }
 
-        .testimonial-stars {
-            color: #ffb347;
-            font-size: 0.8rem;
-            margin-top: 4px;
+        .proof-card {
+            flex: 0 0 auto;
+            width: 280px;
+            background: #fef9e6;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid #ffe0b5;
+            transition: transform 0.2s;
         }
 
-        .testimonial-text {
-            font-style: italic;
-            line-height: 1.5;
-            color: #2c5a7a;
-            font-size: 0.9rem;
+        .proof-card:hover {
+            transform: scale(1.02);
         }
 
-        .testimonial-text i {
-            color: #ffb347;
-            margin-right: 5px;
+        .proof-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Scroll personalizado */
+        .carousel-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carousel-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: #ffb347;
+            border-radius: 10px;
         }
 
         .hero {
@@ -470,7 +489,7 @@
             color: #2c5a7a;
         }
 
-        /* CHATBOT COM IMAGEM DA SENHORA - SEM ÍCONE DE MENSAGEM */
+        /* CHATBOT */
         .chat-button {
             position: fixed;
             bottom: 20px;
@@ -600,6 +619,9 @@
             h1 {
                 font-size: 1.5rem;
             }
+            .proof-card {
+                width: 240px;
+            }
         }
     </style>
 </head>
@@ -607,7 +629,7 @@
 <div class="container">
         <div class="hero">
         <div class="badge"><i class="fas fa-shield-alt"></i> +950 mães já confiam</div>
-        <h1>🚨 Malária, Diarreia, Desnutrição: <br>O que fazer nos primeiros 60 minutos?</h1>
+        <h1>🚨 Malária, Diarreia e mais doenças que causam Desnutrição: <br>O que fazer nos primeiros 60 minutos?</h1>
         <div class="hero-sub">Guia prático com linguagem simples, checklist de emergência e passos que salvam vidas — mesmo longe do hospital.</div>
         <div class="hero-stats">
             <div class="stat"><i class="fas fa-book-open"></i> Leitura rápida (40 min)</div>
@@ -617,15 +639,14 @@
     </div>
 
     
-  <!-- VÍDEO SECTION COM AUTOPLAY E MUTE -->
+    <!-- VÍDEO SECTION -->
     <div class="video-section">
         <div class="video-title">
             🎥 Assista ao vídeo e descubra como salvar o seu filho
         </div>
         <div class="video-container">
-            <video  controls poster="https://i.postimg.cc/252Yc4Lf/imagem-de-capa.jpg">
-                            <source src="https://www.image2url.com/r2/default/videos/1777689095520-ed6a5f07-480f-4dd0-b609-100515e1dd02.mp4" type="video/mp4">
-                <!-- controls autoplay muted playsinline ----\\\  para dar payt automático, sem som e com comportamento otimizado para mobile. Substitua o URL do vídeo pelo seu vídeo real do HeyGen -->
+            <video controls poster="https://i.postimg.cc/252Yc4Lf/imagem-de-capa.jpg">
+                <source src="https://www.image2url.com/r2/default/videos/1777689095520-ed6a5f07-480f-4dd0-b609-100515e1dd02.mp4" type="video/mp4">
             </video>
         </div>
         <div class="video-cta">
@@ -635,86 +656,26 @@
         </div>
     </div>
 
-    <!-- PROVA SOCIAL COM 5 DEPOIMENTOS -->
-    <div class="social-proof">
-        <h3><i class="fas fa-users"></i> +950 mães já confiam no Guia de Sobrevivência</h3>
-        <div class="testimonials-grid">
-            
-            <!-- Depoimento 1 -->
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <img src="https://i.postimg.cc/D0qncRqp/sd-1.jpg" alt="Avatar" class="testimonial-avatar">
-                    <div>
-                        <div class="testimonial-name">Albertina Manhique</div>
-                        <div class="testimonial-location">📍 Matola, Maputo</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <i class="fas fa-quote-left"></i> O meu filho de 3 anos teve diarreia forte à noite. Eu entrei em pânico. Abri o Guia, fiz o soro caseiro como ensina e em 2 dias ele estava bem. Nunca mais fico sem este livro!
-                </div>
-            </div>
-
-            <!-- Depoimento 2 -->
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <img src="https://i.postimg.cc/0Nbv4zY4/sd-2.jpg" alt="Avatar" class="testimonial-avatar">
-                    <div>
-                        <div class="testimonial-name">Cecília José</div>
-                        <div class="testimonial-location">📍 Beira, Sofala</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <i class="fas fa-quote-left"></i> A minha bebé teve malária com convulsão. Eu não sabia o que fazer. O Guia salvou a vida dela. Levei ao hospital a tempo por causa dos sinais que aprendi. Sou grata para sempre.
-                </div>
-            </div>
-
-            <!-- Depoimento 3 -->
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <img src="https://i.postimg.cc/kgh3W70f/sd-3.jpg" alt="Avatar" class="testimonial-avatar">
-                    <div>
-                        <div class="testimonial-name">Isabel Muchanga</div>
-                        <div class="testimonial-location">📍 Nampula, Nampula</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <i class="fas fa-quote-left"></i> Comprei o Guia por desconfiança, mas valeu cada metical. O checklist que vem no fim está colado na minha cozinha. Todas as mães deviam ter um.
-                </div>
-            </div>
-
-            <!-- Depoimento 4 -->
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <img src="https://i.postimg.cc/zBZQkv0v/sd-4.jpg" alt="Avatar" class="testimonial-avatar">
-                    <div>
-                        <div class="testimonial-name">Filomena Langa</div>
-                        <div class="testimonial-location">📍 Tete, Tete</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <i class="fas fa-quote-left"></i> Há duas semanas o meu sobrinho teve febre alta. Eu usei o Guia e reconheci os sinais de perigo. O médico disse que se chegasse mais tarde, podia ser grave. Obrigada!
-                </div>
-            </div>
-
-            <!-- Depoimento 5 -->
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <img src="https://i.postimg.cc/VktBWRTT/sd-5.jpg" alt="Avatar" class="testimonial-avatar">
-                    <div>
-                        <div class="testimonial-name">Helena Mondlane</div>
-                        <div class="testimonial-location">📍 Quelimane, Zambézia</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <i class="fas fa-quote-left"></i> Eu era daquelas que dava banho frio na malária... Até ler o Guia. Hoje sei o que fazer. Recomendo a todas as amigas. Não esperem acontecer para aprender.
-                </div>
+    <!-- PROVA SOCIAL - CARROSSEL DE IMAGENS (WHATSAPP) -->
+    <div class="social-proof-carousel">
+        <h3><i class="fab fa-whatsapp"></i> +950 mães já confiam – Veja o que elas dizem</h3>
+        <div class="carousel-container" id="carouselContainer">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- As imagens são duplicadas para criar o loop infinito -->
+                <!-- SUBSTITUA OS URLs PELAS SUAS IMAGENS REAIS DE CONVERSAS DE WHATSAPP -->
+                <div class="proof-card"><img src="https://i.postimg.cc/HnDRPqbB/prova1.jpg" alt="Depoimento WhatsApp 1"></div>
+                <div class="proof-card"><img src="https://i.postimg.cc/QdHm16Ww/prova2.jpg" alt="Depoimento WhatsApp 2"></div>
+                <div class="proof-card"><img src="https://i.postimg.cc/ydXystwX/prova3.jpg" alt="Depoimento WhatsApp 3"></div>
+                <div class="proof-card"><img src="https://i.postimg.cc/dtP3FDqw/prova4.jpg" alt="Depoimento WhatsApp 4"></div>
+                <div class="proof-card"><img src="https://i.postimg.cc/fyv61Hzk/prova5.jpg" alt="Depoimento WhatsApp 5"></div>
+                <!-- Duplicação para o loop perfeito -->
+                <div class="proof-card"><img src="https://i.postimg.cc/8PRRQ2g3/prova6.jpg" alt="Depoimento WhatsApp 1"></div>
+                <div class="proof-card"><img src="https://i.postimg.cc/5NbHvjDD/temmais7.jpg" alt="Depoimento WhatsApp 2"></div>
             </div>
         </div>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #6c757d;">
+            <i class="fas fa-hand-pointer"></i> Passe o rato ou toque para parar e ver os depoimentos
+        </p>
     </div>
 
     <h2 style="text-align: center; margin: 1rem 0 0.5rem;" id="pacotes-section"><i class="fas fa-tags"></i> Escolha o seu pacote com bónus especiais</h2>
@@ -767,7 +728,7 @@
     <footer>⚠️ Este guia não substitui atendimento médico, mas capacita você a agir.</footer>
 </div>
 
-<!-- BOTÃO CHAT COM IMAGEM DA SENHORA E PONTO VERDE -->
+<!-- BOTÃO CHAT -->
 <div class="chat-button" id="chatButton">
     <img src="https://i.postimg.cc/7hc0gGnc/capa-chat.jpg" alt="Atendente" class="chat-button-img">
     <div class="online-dot"></div>
@@ -787,7 +748,7 @@
 </div>
 
 <script>
-// ===================== NOTIFICAÇÕES DE COMPRA RECENTE (APENAS NOMES FEMININOS - TOPO) =====================
+// ===================== NOTIFICAÇÕES DE COMPRA RECENTE =====================
 const nomesCompradoresFemininos = [
     "Isabel C. (Maputo)", "Fernanda J. (Nampula)", "Albertina S. (Tete)", "Lucrécia P. (Inhambane)", 
     "Helena T. (Xai-Xai)", "Cecília V. (Chimoio)", "Alda N. (Maxixe)", "Sónia B. (Montepuez)", 
@@ -976,11 +937,11 @@ window.onload = () => {
     });
 };
 
-// Forçar o vídeo a tentar dar play (caso o autoplay não funcione)
+// Forçar o vídeo a tentar dar play
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.querySelector('video');
     if(video) {
-        video.play().catch(e => console.log('Autoplay bloqueado pelo navegador, o usuário precisa clicar'));
+        video.play().catch(e => console.log('Autoplay bloqueado pelo navegador'));
     }
 });
 </script>
